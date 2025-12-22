@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anike's Cozy Reading Shelf — Bookshelf</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">★</div>
+      <div>
+        <h1>Anike's Cozy Reading Shelf</h1>
+        <p class="sub">Just the shelf — cute and distraction-free.</p>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Pages">
+      <a class="tab" href="index.html">Manage</a>
+      <a class="tab active" href="shelf.html" aria-current="page">Bookshelf view</a>
+    </nav>
+
+    <div class="top-actions">
+      <label class="search">
+        <span class="sr-only">Search books</span>
+        <input id="searchInput" type="search" placeholder="Search title or notes…" autocomplete="off" />
+      </label>
+    </div>
+  </header>
+
+  <main class="layout single">
+    <section class="shelf-wrap" aria-label="Bookshelf">
+      <div class="wall">
+        <div class="filterbar" role="tablist" aria-label="Status filters">
+          <button class="chip on" data-filter="all" type="button">All</button>
+          <button class="chip" data-filter="read" type="button">Read</button>
+          <button class="chip" data-filter="toread" type="button">To read</button>
+          <button class="chip" data-filter="listening" type="button">Listening</button>
+        </div>
+
+        <div class="shelf" id="shelf"></div>
+      </div>
+      <footer class="foot">
+        <span id="countLabel">0 books</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
