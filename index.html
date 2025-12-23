@@ -12,7 +12,7 @@
       <div class="logo" aria-hidden="true">★</div>
       <div>
         <h1>Anike's Cozy Reading Shelf</h1>
-        <p class="sub">Add books, rate them, save notes + keywords, stickers, and even handwriting on iPad.</p>
+        <p class="sub">Now synced across iPad + phone + laptop (Firebase). Pink rating buttons, black stars.</p>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
         Import
         <input id="importInput" type="file" accept="application/json" />
       </label>
-      <button id="clearBtn" class="btn btn-danger" type="button" title="Clears only this app's saved data">Clear</button>
+      <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
     </div>
   </header>
 
@@ -85,7 +85,7 @@
         </label>
 
         <p class="hint">
-          Covers are auto-fetched (best effort) from Open Library using the title. Click any book to edit notes, add stickers, or write handwritten notes.
+          Covers auto-fetch (best effort) from Open Library. Notes + stars sync instantly. Stickers + handwriting also sync (stored in Firestore — no paid Storage).
         </p>
       </form>
 
@@ -97,7 +97,6 @@
           Upload sticker (PNG/WebP)
           <input id="stickerUpload" type="file" accept="image/png,image/webp,image/jpeg" />
         </label>
-        <button id="clearStickersBtn" class="btn btn-ghost" type="button">Clear stickers</button>
         <div id="stickerTray" class="sticker-tray" aria-label="Sticker tray"></div>
         <p class="hint">Tip: Open a book → choose a sticker to place on it.</p>
       </div>
@@ -220,6 +219,36 @@
     </form>
   </dialog>
 
-  <script src="app.js"></script>
+  <div id="auth" class="auth" aria-label="Sign in">
+    <div class="auth-card">
+      <h2>Sign in</h2>
+      <p class="notice">This keeps your bookshelf private and synced across iPad, phone, and laptop.</p>
+
+      <div class="form" style="margin-top:10px">
+        <label>
+          <span>Email</span>
+          <input id="authEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+        </label>
+
+        <label style="margin-top:10px">
+          <span>Password</span>
+          <input id="authPassword" type="password" placeholder="••••••••" autocomplete="current-password" />
+        </label>
+
+        <div class="auth-row" style="margin-top:12px">
+          <button id="signInBtn" class="btn btn-primary" type="button">Sign in</button>
+          <button id="signUpBtn" class="btn btn-ghost" type="button">Create account</button>
+        </div>
+
+        <div class="error" id="authError"></div>
+
+        <p class="notice" style="margin-top:10px">
+          Tip: Use the same email/password on every device.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
