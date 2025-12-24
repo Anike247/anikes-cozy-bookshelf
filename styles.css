@@ -408,38 +408,3 @@ canvas{width:100%; height:auto; touch-action:none;}
 .auth-row{display:flex; gap:10px; flex-wrap:wrap}
 .notice{font-size:12px; color:var(--muted); margin-top:8px}
 .error{font-size:12px; color:#b3003c; margin-top:8px; display:none}
-
-@keyframes stickerPop{
-  0%{transform: scale(.9) rotate(-6deg)}
-  50%{transform: scale(1.05) rotate(6deg)}
-  100%{transform: scale(1) rotate(0deg)}
-}
-.book .sticker{animation: stickerPop .9s ease-in-out}
-
-.goals-list{display:grid; gap:10px}
-.goal{
-  border:1px solid rgba(0,0,0,.10);
-  background: rgba(255,255,255,.85);
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 10px 18px rgba(0,0,0,.06);
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-}
-.goal .tick{
-  width:26px; height:26px;
-  border-radius: 10px;
-  border:1px solid rgba(0,0,0,.14);
-  background:#fff;
-  display:grid; place-items:center;
-  cursor:pointer;
-  flex:0 0 auto;
-}
-.goal.done .tick{background: linear-gradient(135deg, var(--pink), var(--pink2)); color:#fff; border-color: rgba(0,0,0,.08)}
-.goal .body{flex:1}
-.goal .title{font-weight:900}
-.goal .meta{font-size:12px; color:var(--muted); margin-top:2px}
-.goal .reward{margin-top:8px; display:flex; gap:8px; align-items:center}
-.goal .reward img{width:34px; height:34px; object-fit:contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,.22))}
-.goal .actions{display:flex; gap:8px}
