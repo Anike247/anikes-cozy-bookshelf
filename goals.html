@@ -3,56 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anike's Cozy Reading Shelf — Bookshelf</title>
+  <title>Anike's Cozy Reading Shelf — Goals</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <div class="logo" aria-hidden="true">★</div>
+      <div class="logo" aria-hidden="true">✓</div>
       <div>
         <h1>Anike's Cozy Reading Shelf</h1>
-        <p class="sub">Just the shelf — cute and distraction-free (still synced).</p>
+        <p class="sub">Goals board — tick boxes + stickers as rewards (synced).</p>
       </div>
     </div>
 
     <nav class="tabs" aria-label="Pages">
       <a class="tab" href="index.html">Manage</a>
-      <a class="tab active" href="shelf.html" aria-current="page">Bookshelf view</a>
-      <a class="tab" href="goals.html">Goals</a>
+      <a class="tab" href="shelf.html">Bookshelf view</a>
+      <a class="tab active" href="goals.html" aria-current="page">Goals</a>
     </nav>
 
     <div class="top-actions">
-      <label class="search">
-        <span class="sr-only">Search books</span>
-        <input id="searchInput" type="search" placeholder="Search title or notes…" autocomplete="off" />
-      </label>
       <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
     </div>
   </header>
 
   <main class="layout single">
-    <section class="shelf-wrap" aria-label="Bookshelf">
-      <div class="wall">
-        <div class="filterbar" role="tablist" aria-label="Status filters">
-          <button class="chip on" data-filter="all" type="button">All</button>
-          <button class="chip" data-filter="read" type="button">Read</button>
-          <button class="chip" data-filter="toread" type="button">To read</button>
-          <button class="chip" data-filter="listening" type="button">Listening</button>
+    <section class="panel">
+      <h2>My goals</h2>
+      <form id="goalForm" class="form">
+        <div class="grid">
+          <label>
+            <span>Goal *</span>
+            <input id="goalText" required maxlength="180" placeholder="e.g., Read 2 books this week" />
+          </label>
+          <label>
+            <span>Due date (optional)</span>
+            <input id="goalDue" type="date" />
+          </label>
         </div>
 
-        <div class="shelf" id="shelf"></div>
-      </div>
-      <footer class="foot">
-        <span id="countLabel">0 books</span>
-      </footer>
+        <div class="row" style="margin-top:12px">
+          <button class="btn btn-primary" type="submit">Add goal</button>
+          <div class="hint">Tip: Click a goal to add a reward sticker.</div>
+        </div>
+      </form>
+
+      <hr class="sep" />
+
+      <div id="goalsList" class="goals-list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Reward stickers</h2>
+      <div id="goalStickerTray" class="sticker-tray" aria-label="Sticker tray for goals"></div>
+      <p class="hint">These are the same stickers you use on books + canvas.</p>
     </section>
   </main>
 
   <div id="auth" class="auth" aria-label="Sign in">
     <div class="auth-card">
       <h2>Sign in</h2>
-      <p class="notice">Sign in to see your synced bookshelf.</p>
+      <p class="notice">Sign in to see your synced goals.</p>
 
       <div class="form" style="margin-top:10px">
         <label>
